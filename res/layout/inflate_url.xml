@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_corners"
+        android:padding="10dp" >
+
+        <LinearLayout
+            android:layout_width="241dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/fullUrlName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ajanthanh.github.io"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/smallUrlName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="http://tinyurl.com/kwb8fjh"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#A0A0A0" />
+
+            <TextView
+                android:id="@+id/timeDate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:text="4:52 pm"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#A0A0A0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/favourite"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_launcher" />
+            <Button
+                android:id="@+id/copy"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_launcher" />
+            <Button
+                android:id="@+id/Email"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_launcher" />
+            
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>
