@@ -17,16 +17,23 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout1=0x7f060000;
-        public static final int editText1=0x7f060002;
+        public static final int bitlyView=0x7f060005;
+        public static final int googlyView=0x7f060006;
+        public static final int search=0x7f060003;
         public static final int searchBar=0x7f060001;
+        public static final int searchEditText=0x7f060002;
+        public static final int tinyccView=0x7f060004;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
-        public static final int hello_world=0x7f040001;
-        public static final int searchHint=0x7f040002;
+        public static final int bitlyTitle=0x7f040002;
+        public static final int contentDesc=0x7f040005;
+        public static final int googlyTitle=0x7f040003;
+        public static final int searchHint=0x7f040004;
+        public static final int tinyccTitle=0x7f040001;
     }
     public static final class style {
         /** 

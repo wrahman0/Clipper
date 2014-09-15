@@ -2,7 +2,10 @@
 <resources>
 
     <string name="app_name">Clipper</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="tinyccTitle">Tiny.CC</string>
+    <string name="bitlyTitle">Bit.ly</string>
+    <string name="googlyTitle">Goog.ly</string>
     <string name="searchHint">Please paste a URL</string>
+    <string name="contentDesc">Description Holder</string>
 
 </resources>
