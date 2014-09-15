@@ -11,30 +11,38 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int ic_action_search=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int rounded_corners=0x7f020002;
+        public static final int ic_action_copy=0x7f020000;
+        public static final int ic_action_discard=0x7f020001;
+        public static final int ic_action_important=0x7f020002;
+        public static final int ic_action_search=0x7f020003;
+        public static final int ic_action_share=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int rounded_corners=0x7f020006;
     }
     public static final class id {
-        public static final int Email=0x7f06000e;
+        public static final int Email=0x7f060011;
         public static final int LinearLayout1=0x7f060000;
         public static final int bitlyView=0x7f060005;
         public static final int copy=0x7f06000d;
-        public static final int favourite=0x7f06000c;
+        public static final int delete=0x7f06000e;
+        public static final int favourite=0x7f060010;
         public static final int fullUrlName=0x7f060009;
         public static final int googlyView=0x7f060006;
         public static final int inflateContainer=0x7f060008;
         public static final int search=0x7f060003;
         public static final int searchBar=0x7f060001;
         public static final int searchEditText=0x7f060002;
+        public static final int share=0x7f06000c;
         public static final int smallUrlName=0x7f06000a;
-        public static final int timeDate=0x7f06000b;
+        public static final int timeDate=0x7f06000f;
+        public static final int timeStamp=0x7f06000b;
         public static final int tinyccView=0x7f060004;
         public static final int urlHolder=0x7f060007;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int inflate_url=0x7f030001;
+        public static final int inflate_cards=0x7f030001;
+        public static final int inflate_url=0x7f030002;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
