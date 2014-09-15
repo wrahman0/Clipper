@@ -4,15 +4,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hack.api.Tinycc;
 import com.hack.network.OnPostParseInterface;
@@ -29,6 +31,7 @@ public class MainActivity extends Activity implements OnPostParseInterface{
 	private TextView googly;
 	private ImageButton mSearch;
 	private EditText mSearchEditText;
+	private LinearLayout mUrlHolder;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class MainActivity extends Activity implements OnPostParseInterface{
         googly = (TextView) findViewById(R.id.googlyView);
         mSearch = (ImageButton) findViewById(R.id.search);
         mSearchEditText = (EditText) findViewById(R.id.searchEditText);
+        mUrlHolder = (LinearLayout) findViewById(R.id.urlHolder);
         
         tinycc.setOnClickListener(new ClippingServiceClickListener());
         bitly.setOnClickListener(new ClippingServiceClickListener());
@@ -109,8 +113,13 @@ public class MainActivity extends Activity implements OnPostParseInterface{
 	public void onPostExecute(String result) {
 		try {
 			JSONObject json = new JSONObject(result);
-			String clipped_url=json.getJSONObject("results").getString("short_url");
-			Toast.makeText(getBaseContext(), clipped_url, Toast.LENGTH_LONG).show();
+			String clipped_url = json.getJSONObject("results").getString("short_url");
+			LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			View view = inflater.inflate(R.layout.inflate_url, null);
+			TextView clipper = (TextView)view.findViewById(R.id.smallUrlName);
+			clipper.setText(clipped_url);
+			mUrlHolder.addView(view);
+//			Toast.makeText(getBaseContext(), clipped_url, Toast.LENGTH_LONG).show();
 		} catch (JSONException e) {
 			Log.e(MainActivity.TAG, "Unable to construct a JSON object");
 			e.printStackTrace();
