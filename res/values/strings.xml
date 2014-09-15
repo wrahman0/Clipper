@@ -3,5 +3,6 @@
 
     <string name="app_name">Clipper</string>
     <string name="hello_world">Hello world!</string>
+    <string name="searchHint">Please paste a URL</string>
 
 </resources>
