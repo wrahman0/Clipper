@@ -57,6 +57,7 @@ public class MainActivity extends Activity implements OnPostParseInterface{
 			@Override
 			public void onClick(View v) {
 				String searchQuery = getSearchContent();
+				mSearchEditText.setText("");
 				if (currentService == service[0] && searchQuery != null){
 					Tinycc tiny = new Tinycc(MainActivity.this);
 					tiny.clipURL(searchQuery);
