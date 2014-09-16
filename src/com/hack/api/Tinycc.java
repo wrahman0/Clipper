@@ -34,7 +34,7 @@ public class Tinycc extends URLShortener{
 			e.printStackTrace();
 			return null;
 		}
-		RequestClippingService requestClippingService = new RequestClippingService(listener);
+		RequestClippingService requestClippingService = new RequestClippingService(listener, url);
 		requestClippingService.execute(URL_FIRST + encoded_url + URL_SECOND + API_KEY);
 		return null;
 	}
