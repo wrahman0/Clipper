@@ -21,12 +21,12 @@ import android.util.Log;
 import com.hack.clipper.ClippedUrl;
 import com.hack.clipper.MainActivity;
 
-public class RequestClippingService extends AsyncTask<String, String, String[]>{	
+public class RequestTinyCC extends AsyncTask<String, String, String[]>{	
 	
 	private OnPostParseInterface listener;
 	private String original_url;
 	
-	public RequestClippingService(OnPostParseInterface listener, String original_url){
+	public RequestTinyCC(OnPostParseInterface listener, String original_url){
 		this.listener = listener;
 		this.original_url = original_url;
 	}
@@ -65,14 +65,15 @@ public class RequestClippingService extends AsyncTask<String, String, String[]>{
     @Override
     protected void onPostExecute(String[] result) {
         super.onPostExecute(result);
+        Log.e(MainActivity.TAG,result[0]);
         
-		try {
+		try {	
 			JSONObject json = new JSONObject(result[0]);
 	        String clipped_url;
 			clipped_url = json.getJSONObject("results").getString("short_url");
 			listener.onPostExecute(new ClippedUrl(result[0],result[1],clipped_url, new SimpleDateFormat("h:mma").format(Calendar.getInstance().getTime())));
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+			Log.e(MainActivity.TAG, "Could not construct JSON Object!");
 			e.printStackTrace();
 			listener.onPostExecute(null);
 		}

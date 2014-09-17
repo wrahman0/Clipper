@@ -1,10 +1,9 @@
 package com.hack.clipper;
 
 import android.app.Activity;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.hack.api.Googly;
 import com.hack.api.Tinycc;
 import com.hack.network.OnPostParseInterface;
 
@@ -63,7 +62,8 @@ public class MainActivity extends Activity implements OnPostParseInterface{
 				}else if (currentService == service[1] && searchQuery != null){
 
 				}else if (currentService == service[2] && searchQuery != null){
-
+					Googly goog = new Googly(MainActivity.this);
+					goog.clipURL(searchQuery);
 				}
 			}
 		});
@@ -77,18 +77,16 @@ public class MainActivity extends Activity implements OnPostParseInterface{
 		tinycc.setBackgroundColor(Color.TRANSPARENT);
 		bitly.setBackgroundColor(Color.TRANSPARENT);
 		googly.setBackgroundColor(Color.TRANSPARENT);
-
 		if(service==this.service[0]){
-			tinycc.setBackgroundColor(Color.GRAY);
+			tinycc.setBackground(getResources().getDrawable(R.drawable.rounded_corners));
 			currentService = this.service[0];
 		}else if(service==this.service[1]){
-			bitly.setBackgroundColor(Color.GRAY);
+			bitly.setBackground(getResources().getDrawable(R.drawable.rounded_corners));
 			currentService = this.service[1];
 		}else if (service==this.service[2]){
-			googly.setBackgroundColor(Color.GRAY);
+			googly.setBackground(getResources().getDrawable(R.drawable.rounded_corners));
 			currentService = this.service[2];
 		}
-
 	}
 
 	private class ClippingServiceClickListener implements OnClickListener {
@@ -134,11 +132,9 @@ public class MainActivity extends Activity implements OnPostParseInterface{
 			@Override
 			public void onClick(View v) {
 				
-				ClipboardManager myClipboard;
-				myClipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-				ClipData myClip;
-				myClip = ClipData.newPlainText("text",((ClippedUrl)v.getTag()).getClippedUrl() );
-				myClipboard.setPrimaryClip(myClip);
+				android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getBaseContext().getSystemService(getBaseContext().CLIPBOARD_SERVICE);
+                android.content.ClipData clip = android.content.ClipData.newPlainText("Clipped Url", ((ClippedUrl)v.getTag()).getClippedUrl());
+                clipboard.setPrimaryClip(clip);
 //				Toast.makeText(getBaseContext(), "Copied: " + ((ClippedUrl)v.getTag()).getClippedUrl() + " to clipboard", Toast.LENGTH_LONG).show();
 				
 			}

@@ -7,7 +7,8 @@ import android.util.Log;
 
 import com.hack.clipper.MainActivity;
 import com.hack.network.OnPostParseInterface;
-import com.hack.network.RequestClippingService;
+import com.hack.network.RequestTinyCC;
+import com.hack.processing.URLLogic;
 
 
 public class Tinycc extends URLShortener{
@@ -23,27 +24,21 @@ public class Tinycc extends URLShortener{
 	}
 	
 	@Override
-	public String clipURL(String url) {
+	public void clipURL(String url) {
 		String encoded_url;
 		try {
-			url = validateUrl(url);
+			url = URLLogic.validateUrl(url);
 			encoded_url = URLEncoder.encode(url, "utf-8");
 			Log.e(MainActivity.TAG, "SHORTENING: " + encoded_url);
 		} catch (UnsupportedEncodingException e) {
 			Log.e(MainActivity.TAG,"Unable to encode URL");
 			e.printStackTrace();
-			return null;
+			return;
 		}
-		RequestClippingService requestClippingService = new RequestClippingService(listener, url);
+		RequestTinyCC requestClippingService = new RequestTinyCC(listener, url);
 		requestClippingService.execute(URL_FIRST + encoded_url + URL_SECOND + API_KEY);
-		return null;
 	}
 	
-	private String validateUrl(String url){
-		if (url.indexOf("http") != 0){
-			url = "http://" + url;
-		}
-		return url;
-	}
+	
 
 }
